@@ -1,0 +1,12 @@
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      run: yarn lint
+    check:
+      run: yarn check
+
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: yarn commitlint --edit
