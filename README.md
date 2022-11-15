@@ -3,6 +3,7 @@
 ## Android
 
 ### Setup Firebase
+
 If you haven't already, [set up Firebase](https://firebase.google.com/docs/android/setup) in your project.
 
 No SDK's will have to be added (you can skip Step 4: Add Firebase SDKs to your app)
@@ -19,7 +20,9 @@ Add a 2 new Capabilities using "+" button:
 - `Push Notifications` capability
 
 ### AppDelegate.m(m)
+
 In AppDelegate implementation, add
+
 ```objc
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
@@ -54,3 +57,7 @@ try {
   console.log('getToken error', error);
 }
 ```
+
+## Credits
+
+Parts of this project are inspired/taken from https://github.com/react-native-push-notification/ios
