@@ -46,7 +46,7 @@ In AppDelegate implementation, add
 ```
 
 ## Usage
-
+### getToken
 ```ts
 import SimpleNotifications from 'react-native-simple-notifications';
 
@@ -55,6 +55,25 @@ try {
   // send token to push notification server
 } catch (error) {
   console.log('getToken error', error);
+}
+```
+
+### createNotificationChannel (Android only)
+Notification channels are required since Android 8. FCM automatically creates a default channel if none is specified, but when androidSdkTarget < 33, creating a notification channel is what requests notification permissions, so it's recommended to manually create one.
+If you create it manually, you must tell FCM to use the channel you created by adding the following in your AndroidManifest.xml:
+```xml
+<meta-data
+    android:name="com.google.firebase.messaging.default_notification_channel_id"
+    android:value="uniqueChannelId" />
+```
+```ts
+import SimpleNotifications from 'react-native-simple-notifications';
+
+try {
+  await SimpleNotifications.createNotificationChannel("uniqueChannelId", "uniqueChannelName");
+  // send token to push notification server
+} catch (error) {
+  console.log('createNotificationChannel error', error);
 }
 ```
 

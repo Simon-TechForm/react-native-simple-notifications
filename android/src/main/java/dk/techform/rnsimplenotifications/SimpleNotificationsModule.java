@@ -1,5 +1,8 @@
 package dk.techform.rnsimplenotifications;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Promise;
@@ -9,8 +12,10 @@ import com.facebook.react.bridge.ReactMethod;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SimpleNotificationsModule extends ReactContextBaseJavaModule {
+    private final ReactApplicationContext context;
     SimpleNotificationsModule(ReactApplicationContext context) {
         super(context);
+        this.context = context;
     }
 
     @NonNull
@@ -33,5 +38,12 @@ public class SimpleNotificationsModule extends ReactContextBaseJavaModule {
             }
             promise.resolve(task.getResult());
         });
+    }
+
+    @ReactMethod
+    public void createNotificationChannel(String channelId, String name) {
+        NotificationChannel channel = new NotificationChannel(channelId, name, NotificationManager.IMPORTANCE_HIGH);
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
     }
 }
