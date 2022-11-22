@@ -59,7 +59,8 @@ try {
 ```
 
 ### createNotificationChannel (Android only)
-Notification channels are required since Android 8. FCM automatically creates a default channel if none is specified, but when androidSdkTarget < 33, creating a notification channel is what requests notification permissions, so it's recommended to manually create one.
+Notification channels are required since Android 8. FCM automatically creates a default channel if none is specified, but when androidSdkTarget < 33, creating a notification channel is what requests notification permissions on Android >= 13, so it's recommended to manually create one.
+It's safe to call this function repeteadly.
 If you create it manually, you must tell FCM to use the channel you created by adding the following in your AndroidManifest.xml:
 ```xml
 <meta-data
@@ -76,6 +77,7 @@ try {
   console.log('createNotificationChannel error', error);
 }
 ```
+**Note: When launching the Android app through the react-native cli, there's currently a weird bug that prevents the permission dialog from showing immediately after the creation of a notification channel. Instead the dialog is shown when the app is re-opened. This is not the case when launched through Android Studio. We are yet to determine if there's any issues in published versions.**
 
 ## Credits
 
