@@ -41,8 +41,8 @@ public class SimpleNotificationsModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void createNotificationChannel(String channelId, String name) {
-        NotificationChannel channel = new NotificationChannel(channelId, name, NotificationManager.IMPORTANCE_HIGH);
+    public void createNotificationChannel(String id, String name) {
+        NotificationChannel channel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH);
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
     }
