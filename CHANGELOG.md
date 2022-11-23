@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.1.0](https://github.com/Simon-TechForm/react-native-simple-notifications/compare/v1.0.0...v1.1.0) (2022-11-23)
+
+
+### Features
+
+* **android:** add createNotificationChannel ([346ad0a](https://github.com/Simon-TechForm/react-native-simple-notifications/commit/346ad0a2abb950ecf9428851cb63c5d023c47ee4))
+
 # [1.1.0-beta.1](https://github.com/Simon-TechForm/react-native-simple-notifications/compare/v1.0.0...v1.1.0-beta.1) (2022-11-22)
 
 
