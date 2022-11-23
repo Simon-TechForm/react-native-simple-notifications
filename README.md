@@ -60,7 +60,7 @@ try {
 
 ### createNotificationChannel (Android only)
 Notification channels are required since Android 8. FCM automatically creates a default channel if none is specified, but when androidSdkTarget < 33, creating a notification channel is what requests notification permissions on Android >= 13, so it's recommended to manually create one.
-It's safe to call this function repeteadly.
+It's safe to call this function repeatedly.
 If you create it manually, you must tell FCM to use the channel you created by adding the following in your AndroidManifest.xml:
 ```xml
 <meta-data
